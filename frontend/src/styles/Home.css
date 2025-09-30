@@ -56,24 +56,32 @@ body {
   z-index: 50;
 }
 
+.header > .container {
+  max-width: 98%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .header-content {
   display: flex;
   align-items: center;
   height: 4rem;
-  gap: 3rem; /* Space between sections */
+  gap: 2rem; /* slightly tighter gap for cleaner look */
+  justify-content: flex-start; /* start from left; spacing controlled by margins */
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-right: auto; /* Push everything else to the right */
+  margin-right: 0; /* keep it pinned left */
 }
 
 .nav {
   display: flex;
   gap: 2rem;
-  margin-right: auto; /* Keep nav in the middle/left area */
+  margin-right: auto; /* this remains; ensures header-buttons go to extreme right */
+  margin-left: 2rem; /* balanced spacing between logo and nav */
 }
 
 .logo-icon {

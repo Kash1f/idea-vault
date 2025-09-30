@@ -3,55 +3,52 @@ import "../styles/Home.css";
 const Home = () => {
   const features = [
     {
-      icon: "⚡",
-      title: "Lightning Fast Performance",
+      icon: "📝",
+      title: "Organize Your Ideas",
       description:
-        "Built for speed with edge computing and global CDN. Your applications load instantly anywhere in the world.",
+        "Add, update, and delete startup ideas with categories, target audience, and priority to keep everything structured.",
     },
     {
-      icon: "🛡️",
-      title: "Enterprise Security",
+      icon: "🚀",
+      title: "Track Startup Progress",
       description:
-        "Bank-level security with end-to-end encryption, SOC 2 compliance, and advanced threat protection.",
-    },
-    {
-      icon: "👥",
-      title: "Team Collaboration",
-      description:
-        "Real-time collaboration tools that keep your team in sync. Share, review, and deploy together seamlessly.",
+        "Mark ideas as draft, research, in development, testing, launched, or archived to follow their lifecycle.",
     },
     {
       icon: "📊",
-      title: "Advanced Analytics",
+      title: "Evaluate Market Fit",
       description:
-        "Deep insights into your application performance, user behavior, and business metrics in real-time.",
+        "Rate market difficulty on a 1–5 scale and define revenue models to assess feasibility before building.",
+    },
+    {
+      icon: "👥",
+      title: "Private or Shareable",
+      description:
+        "Keep your ideas private or toggle them public to share with others and get valuable feedback.",
     },
   ];
-  
+
   const testimonials = [
     {
       name: "Sarah Chen",
       role: "CTO at TechFlow",
       content:
-        "StreamLine transformed our development process. We're shipping features 3x faster and our team loves the seamless workflow.",
+        "IdeaVault transformed our development process. We're have started our startup journey faster than ever.",
       rating: 5,
-      avatar: "/professional-woman-diverse.png",
     },
     {
       name: "Marcus Rodriguez",
       role: "Lead Developer at InnovateCorp",
       content:
-        "The best investment we've made. The analytics insights alone have helped us optimize our applications significantly.",
+        "The best decision I have made, launched 5 startups in 3 months which took years before.",
       rating: 5,
-      avatar: "/professional-man.jpg",
     },
     {
       name: "Emily Watson",
       role: "Product Manager at StartupXYZ",
       content:
-        "Finally, a platform that just works. Our deployment time went from hours to minutes. Absolutely game-changing.",
+        "Finally, a platform where I can write and manage my ideas without being distracted by other stuff.",
       rating: 5,
-      avatar: "/professional-woman-glasses.png",
     },
   ];
 
@@ -73,9 +70,6 @@ const Home = () => {
               </a>
               <a href="#testimonials" className="nav-link">
                 Testimonials
-              </a>
-              <a href="#pricing" className="nav-link">
-                Pricing
               </a>
               <a href="#contact" className="nav-link">
                 Contact
@@ -101,7 +95,7 @@ const Home = () => {
             <div className="hero-content">
               {/* Main Headline */}
               <h1 className="hero-title">
-                The complete platform to write and track{" "}
+                The complete platform to write and track startup{" "}
                 <span className="hero-accent">ideas</span>
               </h1>
 
@@ -181,7 +175,7 @@ const Home = () => {
               <h2 className="section-title">Trusted by thousands of teams</h2>
               <p className="section-description">
                 See what our customers are saying about their experience with
-                StreamLine.
+                IdeaVault.
               </p>
             </div>
 
@@ -200,11 +194,6 @@ const Home = () => {
                       "{testimonial.content}"
                     </p>
                     <div className="testimonial-author">
-                      <img
-                        src={testimonial.avatar || "/placeholder.svg"}
-                        alt={testimonial.name}
-                        className="testimonial-avatar"
-                      />
                       <div>
                         <div className="testimonial-name">
                           {testimonial.name}
@@ -217,30 +206,6 @@ const Home = () => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="section">
-          <div className="container">
-            <div className="cta-container">
-              <h2 className="section-title mb-4">
-                Ready to streamline your workflow?
-              </h2>
-              <p className="section-description mb-8">
-                Join thousands of teams who have already transformed their
-                development process with IdeaVault.
-              </p>
-              <div className="cta-buttons">
-                <a href="#" className="btn btn-primary btn-lg">
-                  Start Free Trial
-                  <span className="ml-2">→</span>
-                </a>
-                <a href="#" className="btn btn-outline btn-lg">
-                  Schedule Demo
-                </a>
-              </div>
             </div>
           </div>
         </section>
@@ -259,8 +224,8 @@ const Home = () => {
                   </div>
                 </div>
                 <p className="footer-description">
-                  The complete platform to streamline your workflow. Built for
-                  individuals that want to move fast and build better.
+                  The complete platform to track your startup ideas. Built for
+                  individuals that want to innovate fast and build better.
                 </p>
                 <div className="footer-social">
                   <a href="#">🐦</a>
