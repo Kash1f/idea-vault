@@ -24,7 +24,7 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState("All");
   const [filterCategory, setFilterCategory] = useState("All");
-  const [user] = useState({ name: "John Doe", email: "john@example.com" });
+  const [user, setUser] = useState(null);
   const [showProfile, setShowProfile] = useState(false);
   const navigate = useNavigate();
 
@@ -33,6 +33,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     getItems();
+    getUserProfile();
   }, []);
 
   const getItems = async () => {
@@ -102,6 +103,26 @@ const Dashboard = () => {
       })
       .catch((err) => alert(err));
   };
+
+  const getUserProfile = async () => {
+    try {
+      const res = await api.get("/api/user/profile/");
+      if (res.status === 200) {
+        console.log("API Response:", res.data);
+        setUser(res.data);
+      } else {
+        alert("Failed to fetch user profile");
+      }
+    } catch (error) {
+      console.error("Error fetching user profile:", error);
+      alert("Failed to fetch user profile");
+    } 
+  };
+
+  // Add this to see the user state changes
+  useEffect(() => {
+    console.log("User state updated:", user);
+  }, [user]);
 
   const openUpdateModal = (item) => {
     setSelectedItem(item);
@@ -188,10 +209,9 @@ const Dashboard = () => {
               className="user-profile"
               onClick={() => setShowProfile(!showProfile)}
             >
-              <div className="user-avatar">{user.name.charAt(0)}</div>
+              <div className="user-avatar">{user?.username?.charAt(0) || "U"}</div>
               <div className="user-info">
-                <span className="user-name">{user.name}</span>
-                <span className="user-email">{user.email}</span>
+                <span className="user-name">{user?.username || "User"}</span>
               </div>
               <svg
                 className="chevron"

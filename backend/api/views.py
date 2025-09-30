@@ -23,7 +23,6 @@ class VaultItemListCreate(generics.ListCreateAPIView):
             print(serializer.errors)
 
 # PUT for vault items
-
 class VaultItemUpdate(generics.UpdateAPIView):
     serializer_class = VaultItemSerializer
     permission_classes = [IsAuthenticated]
@@ -48,6 +47,7 @@ class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer # this specifies the data we need to accept to make a new user so here username and password
     permission_classes = [AllowAny] # this permission specifies who can call this 
 
+# view to retrieve the profile of the currently authenticated user, will use the same User object and serializer
 class UserProfileView(generics.RetrieveAPIView):
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
