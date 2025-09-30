@@ -110,13 +110,10 @@ const Dashboard = () => {
       if (res.status === 200) {
         console.log("API Response:", res.data);
         setUser(res.data);
-      } else {
-        alert("Failed to fetch user profile");
       }
     } catch (error) {
       console.error("Error fetching user profile:", error);
-      alert("Failed to fetch user profile");
-    } 
+    }
   };
 
   // Add this to see the user state changes
@@ -209,7 +206,9 @@ const Dashboard = () => {
               className="user-profile"
               onClick={() => setShowProfile(!showProfile)}
             >
-              <div className="user-avatar">{user?.username?.charAt(0) || "U"}</div>
+              <div className="user-avatar">
+                {user?.username?.charAt(0) || "U"}
+              </div>
               <div className="user-info">
                 <span className="user-name">{user?.username || "User"}</span>
               </div>
