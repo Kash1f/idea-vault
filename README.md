@@ -67,12 +67,6 @@ Track your ideas through every stage:
 | `PUT` | `/api/items/update/{id}/` | Update existing idea |
 | `DELETE` | `/api/items/delete/{id}/` | Delete idea |
 
-### Search & Filtering
-The ideas endpoint supports powerful query parameters:
-- `?search=term` - Search in titles and content
-- `?status=development` - Filter by development stage
-- `?category=Tech` - Filter by category
-
 ## 🎯 Getting Started
 
 ### Prerequisites
