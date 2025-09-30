@@ -3,8 +3,10 @@ import { ACCESS_TOKEN } from "./constants";
 
 //we're going to set up axios Interceptor where anytime we send a request it's going to check if we have an access token and if we do it will auto automatically added to that request
 
+const apiUrl = "/choreo-apis/idea-vault/backend/v1"
+
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL
+    baseURL: import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL : apiUrl,
 })
 
 api.interceptors.request.use(
