@@ -1,13 +1,19 @@
+/* Comprehensive IdeaVault styling based on Notes.css */
 .notes-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #000000 0%, #0e144b 100%);
-  /* background: linear-gradient(135deg, #000000 0%, #000000 100%); */
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
   color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   padding: 2rem;
 }
 
 .notes-header {
   margin-bottom: 2rem;
+  /* Counteract .notes-container padding so the header spans edge-to-edge */
+  margin-left: -2rem;
+  margin-right: -2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .header-top {
@@ -15,12 +21,16 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  /* Keep content distributed while logo stays at the far left */
+  justify-content: space-between;
 }
 
 .logo-section {
   display: flex;
   align-items: center;
   gap: 1rem;
+  /* Push all other header content to the right, keeping the logo pinned left */
+  margin-right: auto;
 }
 
 .logo {
@@ -260,6 +270,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
+  align-items: start; /* added */
 }
 
 .form-group {
@@ -274,35 +285,33 @@
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  /* added lines below */
+  display: flex;
+  align-items: center;
+  height: 1.25rem; /* force consistent single-line label height */
+  line-height: 1.25rem;
 }
 
 .form-input,
 .form-select {
-  width: 100%;
   padding: 0.875rem 1rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  color: #727477;
+  color: #e2e8f0;
   font-size: 1rem;
   transition: all 0.2s ease;
+  /* added lines below */
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 48px; /* consistent control height */
 }
 
-.form-input:focus,
-.form-select:focus {
-  outline: none;
-  border-color: #667eea;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.form-input::placeholder {
-  color: #64748b;
-}
-
-.form-textarea {
-  min-height: 120px;
-  resize: vertical;
-  font-family: inherit;
+.form-select {
+  -webkit-appearance: none;
+  appearance: none;
+  line-height: 1.25;
+  padding-right: 2.25rem; /* room for native arrow without affecting height */
 }
 
 .submit-button {
@@ -508,16 +517,12 @@
   color: #ef4444;
 }
 
-.menu-item.update {
-  color: #5e44ef;
-}
-
 .note-content {
   color: #cbd5e1;
   line-height: 1.6;
   margin-bottom: 1rem;
   display: -webkit-box;
-  /* -webkit-line-clamp: 3; */
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
