@@ -24,4 +24,4 @@ api.interceptors.request.use(
 
 export default api;
 
-// we will look for the access token in local storage, if it exists we will add it as authorization header in the request headers, otherwise we don't need to do anything because the request will be sent without the authorization header
+//we will look for the access token in local storage, if it exists we will add it as authorization header in the request headers, otherwise we don't need to do anything because the request will be sent without the authorization header

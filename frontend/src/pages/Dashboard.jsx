@@ -116,7 +116,6 @@ const Dashboard = () => {
     }
   };
 
-  // Add this to see the user state changes
   useEffect(() => {
     console.log("User state updated:", user);
   }, [user]);
