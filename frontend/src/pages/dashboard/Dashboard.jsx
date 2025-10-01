@@ -188,14 +188,14 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="notes-container">
-      <div className="notes-header">
+    <div className="items-container">
+      <div className="items-header">
         <div className="header-top">
           <div className="logo-section">
             <div className="logo">💡</div>
             <div>
-              <h1 className="notes-title">IdeaVault</h1>
-              <p className="notes-subtitle">
+              <h1 className="items-title">IdeaVault</h1>
+              <p className="items-subtitle">
                 Track, develop, and launch your startup ideas
               </p>
             </div>
@@ -316,9 +316,9 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="notes-form-container">
+      <div className="items-form-container">
         <h2 className="form-title">Add New Startup Idea</h2>
-        <form className="notes-form" onSubmit={createItem}>
+        <form className="items-form" onSubmit={createItem}>
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="title" className="form-label">
@@ -332,7 +332,7 @@ const Dashboard = () => {
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g., AI-powered fitness coach"
-                className="form-input"
+                className="form-select"
               />
             </div>
             <div className="form-group">
@@ -443,7 +443,7 @@ const Dashboard = () => {
                 value={targetAudience}
                 onChange={(e) => setTargetAudience(e.target.value)}
                 placeholder="e.g., Young professionals, Small businesses"
-                className="form-input"
+                className="form-select"
               />
             </div>
           </div>
@@ -460,7 +460,7 @@ const Dashboard = () => {
                 value={revenueModel}
                 onChange={(e) => setRevenueModel(e.target.value)}
                 placeholder="e.g., Subscription, Freemium, One-time purchase"
-                className="form-input"
+                className="form-select"
               />
             </div>
             <div className="form-group">
@@ -518,13 +518,13 @@ const Dashboard = () => {
               </span>
             )}
           </div>
-          <div className="notes-grid">
+          <div className="items-grid">
             {filteredItems.map((item) => (
-              <div key={item.id} className="note-card">
-                <div className="note-header">
-                  <div className="note-title-section">
-                    <h3 className="note-title">{item.title}</h3>
-                    <div className="note-meta">
+              <div key={item.id} className="item-card">
+                <div className="item-header">
+                  <div className="item-title-section">
+                    <h3 className="item-title">{item.title}</h3>
+                    <div className="item-meta">
                       {item.category && (
                         <span className="category-badge">{item.category}</span>
                       )}
@@ -539,7 +539,7 @@ const Dashboard = () => {
                       )}
                     </div>
                   </div>
-                  <div className="note-menu">
+                  <div className="item-menu">
                     <button
                       className="menu-button"
                       onClick={() => toggleMenu(item.id)}
@@ -575,7 +575,7 @@ const Dashboard = () => {
                   </div>
                 </div>
 
-                <p className="note-content">{item.content}</p>
+                <p className="item-content">{item.content}</p>
 
                 {item.target_audience && (
                   <div className="additional-info">
@@ -598,16 +598,16 @@ const Dashboard = () => {
                   </div>
                 )}
 
-                <div className="note-footer">
+                <div className="item-footer">
                   {item.status && (
                     <span
-                      className={`note-status ${getStatusClass(item.status)}`}
+                      className={`item-status ${getStatusClass(item.status)}`}
                     >
                       {item.status}
                     </span>
                   )}
-                  <div className="note-dates">
-                    <span className="note-date">
+                  <div className="item-dates">
+                    <span className="item-date">
                       Created: {new Date(item.created_at).toLocaleDateString()}
                     </span>
                   </div>

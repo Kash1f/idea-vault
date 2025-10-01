@@ -4,8 +4,8 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
-import Home from "./pages/home/Home"
-import NotFound from "./pages/NotFound";
+import Home from "./pages/home/Home";
+import NotFound from "./pages/notfound/NotFound";
 
 function Logout() {
   localStorage.clear();

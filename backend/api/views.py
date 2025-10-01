@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from rest_framework import generics
+from django.db.models import Q
 from .serializers import UserSerializer, VaultItemSerializer
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .models import VaultItem
@@ -14,8 +15,23 @@ class VaultItemListCreate(generics.ListCreateAPIView):
     
     def get_queryset(self): # using get_queryset to filter vault items by the authenticated user
         user = self.request.user
-        return VaultItem.objects.filter(author=user) # vault items created by the authenticated users are returned
+        queryset = VaultItem.objects.filter(author=user) # vault items created by the authenticated users are returned
+
+        search_term = self.request.query_params.get('search', None)
+        if search_term:
+            queryset = queryset.filter(
+                Q(title__icontains=search_term) |  
+                Q(content__icontains=search_term) |
+                Q(category__icontains=search_term)
+            )
+        return queryset.order_by('-created_at')
     
+    def perform_create(self, serializer):
+        if serializer.is_valid():
+            serializer.save(author=self.request.user)
+        else:
+            print(serializer.errors)
+
     def perform_create(self, serializer):
         if serializer.is_valid(): # if serializer is valid, save the vault item with the author which is the authenticated user
             serializer.save(author=self.request.user) # manually adding the author field since it's read only

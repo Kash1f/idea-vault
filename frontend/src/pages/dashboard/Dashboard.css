@@ -1,5 +1,5 @@
-/* Comprehensive IdeaVault styling based on Notes.css */
-.notes-container {
+/* Comprehensive IdeaVault styling based on items.css */
+.items-container {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
   color: #e2e8f0;
@@ -7,9 +7,9 @@
   padding: 2rem;
 }
 
-.notes-header {
+.items-header {
   margin-bottom: 2rem;
-  /* Counteract .notes-container padding so the header spans edge-to-edge */
+  /* Counteract .items-container padding so the header spans edge-to-edge */
   margin-left: -2rem;
   margin-right: -2rem;
   padding-left: 2rem;
@@ -21,7 +21,6 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
-  /* Keep content distributed while logo stays at the far left */
   justify-content: space-between;
 }
 
@@ -29,7 +28,6 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  /* Push all other header content to the right, keeping the logo pinned left */
   margin-right: auto;
 }
 
@@ -41,7 +39,7 @@
   background-clip: text;
 }
 
-.notes-title {
+.items-title {
   font-size: 2.5rem;
   font-weight: 700;
   margin: 0;
@@ -51,7 +49,7 @@
   background-clip: text;
 }
 
-.notes-subtitle {
+.items-subtitle {
   color: #94a3b8;
   margin: 0.5rem 0 0 0;
   font-size: 1.1rem;
@@ -232,7 +230,7 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  color: #e2e8f0;
+  color: #9da3ac;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -244,7 +242,7 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-.notes-form-container {
+.items-form-container {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -260,7 +258,7 @@
   color: #e2e8f0;
 }
 
-.notes-form {
+.items-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -301,10 +299,9 @@
   color: #9da3ac;
   font-size: 1rem;
   transition: all 0.2s ease;
-  /* added lines below */
   width: 100%;
   box-sizing: border-box;
-  min-height: 48px; /* consistent control height */
+  min-height: 48px;
 }
 
 .form-select {
@@ -379,13 +376,13 @@
   font-size: 0.875rem;
 }
 
-.notes-grid {
+.items-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 1.5rem;
 }
 
-.note-card {
+.item-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
@@ -394,24 +391,24 @@
   position: relative;
 }
 
-.note-card:hover {
+.item-card:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
 
-.note-header {
+.item-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1rem;
 }
 
-.note-title-section {
+.item-title-section {
   flex: 1;
 }
 
-.note-title {
+.item-title {
   font-size: 1.25rem;
   font-weight: 600;
   color: #e2e8f0;
@@ -419,7 +416,7 @@
   line-height: 1.3;
 }
 
-.note-meta {
+.item-meta {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
@@ -463,7 +460,7 @@
   border-color: rgba(34, 197, 94, 0.3);
 }
 
-.note-menu {
+.item-menu {
   position: relative;
 }
 
@@ -517,7 +514,7 @@
   color: #ef4444;
 }
 
-.note-content {
+.item-content {
   color: #cbd5e1;
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -563,7 +560,7 @@
   color: #fbbf24;
 }
 
-.note-footer {
+.item-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -571,7 +568,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.note-status {
+.item-status {
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
   font-size: 0.75rem;
@@ -611,20 +608,20 @@
   border-color: rgba(107, 114, 128, 0.3);
 }
 
-.note-dates {
+.item-dates {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 
-.note-date {
+.item-date {
   font-size: 0.75rem;
   color: #64748b;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .notes-container {
+  .items-container {
     padding: 1rem;
   }
 
@@ -654,7 +651,7 @@
     grid-template-columns: 1fr;
   }
 
-  .notes-grid {
+  .items-grid {
     grid-template-columns: 1fr;
   }
 
@@ -670,7 +667,7 @@
     grid-template-columns: 1fr;
   }
 
-  .notes-form-container {
+  .items-form-container {
     padding: 1.5rem;
   }
 }

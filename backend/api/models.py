@@ -24,11 +24,23 @@ class VaultItem(models.Model):
         ('medium', 'Medium'),
         ('high', 'High'),
     ]
+
+    CATEGORY_CHOICES = [
+        ('Tech', 'Tech'),
+        ('Health', 'Health'),
+        ('Finance', 'Finance'),
+        ('Education', 'Education'),
+        ('E-commerce', 'E-commerce'),
+        ('Social', 'Social'),
+        ('Gaming', 'Gaming'),
+        ('Other', 'Other'),
+    ]
+
     
     title = models.CharField(max_length=100)
     content = models.TextField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='draft')
-    category = models.CharField(max_length=100, blank=True)
+    category = models.CharField(max_length=100, choices=CATEGORY_CHOICES, blank=True)
     priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES, default='medium')
     market_potential = models.IntegerField(default=1)
     target_audience = models.TextField(blank=True)
