@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
-import "../styles/Modal.css";
+import "./Modal.css"
 
 const Modal = ({ isOpen, onClose, item, onUpdate }) => {
   const [formData, setFormData] = useState({

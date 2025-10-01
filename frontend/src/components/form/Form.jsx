@@ -1,9 +1,9 @@
 import { useState } from "react";
-import api from "../api";
+import api from "../../api.js";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
-import "../styles/Form.css";
-import LoadingIndicator from "./LoadingIndicator.jsx";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants.js";
+import "./Form.css"
+import LoadingIndicator from "../loadingindicator/LoadingIndicator.jsx";
 
 //taking two props, route to specify where the form submits (login/register) and method to indicate whether it's for login or registration.
 const Form = ({ route, method }) => {

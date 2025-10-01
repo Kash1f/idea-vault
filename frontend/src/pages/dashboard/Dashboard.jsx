@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import api from "../api";
-import "../styles/Dashboard.css";
+import api from "../../api";
+import "./Dashboard.css"
 import { useNavigate } from "react-router-dom";
 import { Pen, Trash } from "lucide-react";
-import Modal from "../components/Modal";
+import Modal from "../../components/modal/Modal";
 
 const Dashboard = () => {
   const [items, setItems] = useState([]);

@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Home from "./pages/home/Home"
 import NotFound from "./pages/NotFound";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Dashboard from "./pages/Dashboard";
 
 function Logout() {
   localStorage.clear();
@@ -34,7 +34,7 @@ const App = () => {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/register" element={<RegisterandLogout/>} />
+          <Route path="/register" element={<RegisterandLogout />} />
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
