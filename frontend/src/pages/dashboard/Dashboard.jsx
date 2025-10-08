@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import api from "../../api";
 import "./Dashboard.css"
@@ -224,7 +222,6 @@ const Dashboard = () => {
             {showProfile && (
               <div className="profile-dropdown">
                 <button className="profile-item">Profile Settings</button>
-                <button className="profile-item">Export Ideas</button>
                 <button className="profile-item logout" onClick={handleLogout}>
                   Logout
                 </button>
@@ -512,11 +509,6 @@ const Dashboard = () => {
         <>
           <div className="results-header">
             <h2>Your Ideas ({filteredItems.length})</h2>
-            {searchTerm && (
-              <span className="search-results">
-                Showing results for "{searchTerm}"
-              </span>
-            )}
           </div>
           <div className="items-grid">
             {filteredItems.map((item) => (
