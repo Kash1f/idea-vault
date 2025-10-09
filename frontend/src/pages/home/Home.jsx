@@ -4,7 +4,7 @@ const Home = () => {
   const features = [
     {
       icon: "📝",
-      title: "Organize Your Ideas",
+      title: "Organize",
       description:
         "Add, update, and delete startup ideas with categories, target audience, and priority to keep everything structured.",
     },

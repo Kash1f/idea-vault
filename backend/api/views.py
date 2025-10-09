@@ -12,18 +12,11 @@ class VaultItemListCreate(generics.ListCreateAPIView):
     serializer_class = VaultItemSerializer
     permission_classes = [IsAuthenticated] # this route can't be called unless user is authenticated and a valid JWT token is passed
 
+    # determining which objects the view should show
     def get_queryset(self): # using get_queryset to filter vault items by the authenticated user
         user = self.request.user
         queryset = VaultItem.objects.filter(author=user) # vault items created by the authenticated users are returned
-
-        search_term = self.request.query_params.get('search', None)
-        if search_term:
-            queryset = queryset.filter(
-                Q(title__icontains=search_term) |  
-                Q(content__icontains=search_term) |
-                Q(category__icontains=search_term)
-            )
-        return queryset.order_by('-created_at')
+        return queryset.order_by('-created_at') # we will return the newest first
 
     def perform_create(self, serializer):
         if serializer.is_valid(): # if serializer is valid, save the vault item with the author which is the authenticated user
@@ -61,11 +54,9 @@ class UserProfileView(generics.RetrieveAPIView):
     serializer_class = UserSerializer
     permission_classes = [IsAuthenticated]
 
-    #object instead of queryset because we are retrieving a single object, queryset is for multiple objects
+    # object instead of queryset because we are retrieving a single object, queryset is for multiple objects
     def get_object(self):
         return self.request.user
     
 
 
-
-# The get_queryset method in the list view returns all items for the current user, and if a search term is provided, it filters items by title, content, or category before ordering them by creation date. Other views handle user registration and profile retrieval, also scoped to the authenticated user.

@@ -13,8 +13,5 @@ urlpatterns = [
     path("api/", include("api.urls")), # including the urls from the api app 
 ]
 
-"""
-these views are are pre-built views connecting our Auth Routes that allow us to obtain our access and refresh tokens and to refresh the token, they're already built for us and now that we've implemented what we need to do which is creating a new user once the user is created we can use these pre-built views to obtain the token for that user and to effectively sign them in
-"""
 
 

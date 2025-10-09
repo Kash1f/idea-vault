@@ -8,8 +8,8 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ["id", "username", "password"] #these fields will be serialized when accepting new user & returning a new user
         extra_kwargs = {"password": {"write_only": True}} #making sure password is not returned when returning a user, read only
 
+    # validating data so that input is vaild to create the user
     def create(self, validated_data):
-        print(validated_data)
         user = User.objects.create_user(**validated_data)
         return user
 
@@ -22,6 +22,13 @@ class VaultItemSerializer(serializers.ModelSerializer):
             "competition_level", "created_at", "updated_at", "author"
         ]
         extra_kwargs = {"author": {"read_only": True}}
+
+
+
+
+
+
+
 
 
 
