@@ -1,22 +1,20 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from rest_framework import viewsets
 from rest_framework import generics
-from django.db.models import Q
 from .serializers import UserSerializer, VaultItemSerializer
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .models import VaultItem
 
 
-# GET and POST for vault items
-class VaultItemListCreate(generics.ListCreateAPIView):
+class VaultItemViewSet(viewsets.ModelViewSet):
     serializer_class = VaultItemSerializer
     permission_classes = [IsAuthenticated] # this route can't be called unless user is authenticated and a valid JWT token is passed
 
     # determining which objects the view should show
     def get_queryset(self): # using get_queryset to filter vault items by the authenticated user
         user = self.request.user
-        queryset = VaultItem.objects.filter(author=user) # vault items created by the authenticated users are returned
-        return queryset.order_by('-created_at') # we will return the newest first
+        return VaultItem.objects.filter(author=user).order_by('-created_at')
 
     def perform_create(self, serializer):
         if serializer.is_valid(): # if serializer is valid, save the vault item with the author which is the authenticated user
@@ -24,24 +22,6 @@ class VaultItemListCreate(generics.ListCreateAPIView):
         else:
             print(serializer.errors)
 
-# PUT for vault items
-class VaultItemUpdate(generics.UpdateAPIView):
-    serializer_class = VaultItemSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        user = self.request.user
-        return VaultItem.objects.filter(author=user)
-
-# DELETE for vault items
-class VaultItemDelete(generics.DestroyAPIView):
-    serializer_class = VaultItemSerializer
-    permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        user = self.request.user
-        return VaultItem.objects.filter(author=user)
-     
 
 # creating a view with generics that automatically registers a new user
 class CreateUserView(generics.CreateAPIView):

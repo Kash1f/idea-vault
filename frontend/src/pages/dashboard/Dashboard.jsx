@@ -24,10 +24,10 @@ const Dashboard = () => {
   const [filterCategory, setFilterCategory] = useState("All");
   const [user, setUser] = useState(null);
   const [showProfile, setShowProfile] = useState(false);
-  const navigate = useNavigate();
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getItems();
@@ -47,7 +47,7 @@ const Dashboard = () => {
 
   const deleteItem = async (id) => {
     api
-      .delete(`/api/items/delete/${id}/`)
+      .delete(`/api/items/${id}/`)
       .then((res) => {
         if (res.status === 204) alert("Item deleted successfully");
         else alert("Failed to Delete the Item!");
@@ -93,7 +93,7 @@ const Dashboard = () => {
 
   const updateItem = async (id, formData) => {
     api
-      .put(`/api/items/update/${id}/`, formData)
+      .put(`/api/items/${id}/`, formData)
       .then((res) => {
         if (res.status === 200) alert("Item updated successfully");
         else alert("Failed to update the Item!");
