@@ -14,7 +14,7 @@ class VaultItemViewSet(viewsets.ModelViewSet):
     # determining which objects the view should show
     def get_queryset(self): # using get_queryset to filter vault items by the authenticated user
         user = self.request.user
-        return VaultItem.objects.filter(author=user).order_by('-created_at')
+        return VaultItem.objects.filter(author=user)
 
     def perform_create(self, serializer):
         if serializer.is_valid(): # if serializer is valid, save the vault item with the author which is the authenticated user
